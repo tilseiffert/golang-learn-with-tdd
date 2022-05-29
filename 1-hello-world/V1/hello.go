@@ -10,6 +10,18 @@ const HelloPrefixGerman = "Hallo, "
 const HelloPrefixFrench = "Bonjour, "
 const HelloSuffix = "!"
 
+func greetingPrefix(language string) (prefix string) {
+	switch language {
+	case languageFrench:
+		prefix = HelloPrefixFrench
+	case languageGerman:
+		prefix = HelloPrefixGerman
+	default:
+		prefix = HelloPrefixEnglisch
+	}
+	return
+}
+
 func Hello(name string, language string) string {
 	//return "Hello, world!"
 
@@ -17,14 +29,7 @@ func Hello(name string, language string) string {
 		name = "World"
 	}
 
-	prefix := HelloPrefixEnglisch
-
-	switch language {
-	case languageFrench:
-		prefix = HelloPrefixFrench
-	case languageGerman:
-		prefix = HelloPrefixGerman
-	}
+	prefix := greetingPrefix(language)
 
 	return prefix + name + HelloSuffix
 }
