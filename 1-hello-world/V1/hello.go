@@ -2,9 +2,12 @@ package main
 
 import "fmt"
 
+const HelloPrefixEnglisch = "Hello, "
+const HelloSuffix = "!"
+
 func Hello(name string) string {
 	//return "Hello, world!"
-	return "Hello, " + name + "!"
+	return HelloPrefixEnglisch + name + HelloSuffix
 }
 
 func main() {
