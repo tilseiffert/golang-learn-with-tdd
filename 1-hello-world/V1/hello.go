@@ -7,6 +7,11 @@ const HelloSuffix = "!"
 
 func Hello(name string) string {
 	//return "Hello, world!"
+
+	if name == "" {
+		name = "World"
+	}
+
 	return HelloPrefixEnglisch + name + HelloSuffix
 }
 
