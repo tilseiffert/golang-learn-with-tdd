@@ -7,12 +7,14 @@ import (
 )
 
 func TestSearch(t *testing.T) {
-	dicitonary := Dictionary{"test": "this is just a test"}
+	key := "test"
+	value := "this is just a test"
+	dicitonary := Dictionary{key: value}
 
 	t.Run("kown word", func(t *testing.T) {
-		got, err := dicitonary.Search("test")
+		got, err := dicitonary.Search(key)
 		assert.NoError(t, err)
-		assert.Equal(t, got, "this is just a test")
+		assert.Equal(t, got, value)
 	})
 
 	t.Run("unkown word", func(t *testing.T) {
@@ -21,4 +23,16 @@ func TestSearch(t *testing.T) {
 		assert.Equal(t, got, "")
 	})
 
+}
+
+func TestAdd(t *testing.T) {
+	dicitonary := Dictionary{}
+	key := "test"
+	value := "this is just a test"
+
+	dicitonary.Add(key, value)
+
+	got, err := dicitonary.Search(key)
+	assert.NoError(t, err)
+	assert.Equal(t, got, value)
 }
