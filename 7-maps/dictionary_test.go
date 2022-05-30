@@ -1,21 +1,24 @@
 package maps
 
-import "testing"
+import (
+	"testing"
+
+	"github.com/stretchr/testify/assert"
+)
 
 func TestSearch(t *testing.T) {
 	dicitonary := Dictionary{"test": "this is just a test"}
 
-	searchkey := "test"
-	got := dicitonary.Search(searchkey)
-	want := "this is just a test"
+	t.Run("kown word", func(t *testing.T) {
+		got, err := dicitonary.Search("test")
+		assert.NoError(t, err)
+		assert.Equal(t, got, "this is just a test")
+	})
 
-	assertStrings(t, got, want)
-}
+	t.Run("unkown word", func(t *testing.T) {
+		got, err := dicitonary.Search("unkown")
+		assert.Error(t, err)
+		assert.Equal(t, got, "")
+	})
 
-func assertStrings(t testing.TB, got, want string) {
-	t.Helper()
-
-	if got != want {
-		t.Errorf("got %q want %q", got, want)
-	}
 }
