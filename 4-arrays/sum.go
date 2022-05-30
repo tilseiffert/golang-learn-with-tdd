@@ -29,5 +29,3 @@ func SumAllTails(numbersToSum ...[]int) (sums []int) {
 
 	return
 }
-
-// irrelevant change for commit-test
