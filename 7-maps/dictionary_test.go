@@ -17,7 +17,7 @@ func TestSearch(t *testing.T) {
 
 	t.Run("unkown word", func(t *testing.T) {
 		got, err := dicitonary.Search("unkown")
-		assert.Error(t, err)
+		assert.ErrorIs(t, err, ErrNotFound)
 		assert.Equal(t, got, "")
 	})
 
