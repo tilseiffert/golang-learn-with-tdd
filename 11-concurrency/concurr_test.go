@@ -47,4 +47,8 @@ func BenchmarkCheckWebsites(b *testing.B) {
 	for i := 0; i < b.N; i++ {
 		CheckWebsites(slowStubWebsiteChecker, urls)
 	}
+
 }
+
+// benchmark wo concurrency: 2099199416 / 2,0991
+// benchmark wi concurrency: 21138843   / 0,0211
